@@ -2,6 +2,7 @@
 IMT - CI3U1 - Grundgerüst einer Website
 Autor: Daniel Kruse
 Datum: 05.11.2024
+Überarbeitungsdatum: 18.11.2024
 -->
 
 <!-- Sagt dem Browser, das es eine HTML-Datei ist -->
@@ -16,13 +17,52 @@ Datum: 05.11.2024
 		<!-- Setzt die richtigen Werte für den Anzeigebereich -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
 		<meta name="title" content="Title">
 		<meta name="description" content="Description">
 
+		<link rel="stylesheet" href="design.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/styles/default.min.css">
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/highlight.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+		<script src="script.js"></script>
+
+
 		<title>Title</title>
 	</head>
-	<body>
 
+	<body>
+		<header>
+			<button onclick="toggleDebug()">
+				Debug An/Aus
+			</button>
+		</header>
+
+		<main>
+			<div class="container">
+				<div class="content">
+					<div class="container-child left">
+						<h1 class="title">Grundgerüst<br><span>einer Website</span></h1>
+					</div>
+
+					<div class="container-child right">
+						<div class="code-viewer">
+
+							<div class="code-block">
+								<pre>
+									<code class="language-html">
+
+									</code>
+								</pre>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+
+		<footer>
+
+		</footer>
 	</body>
 </html>

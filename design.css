@@ -1,0 +1,175 @@
+@charset "UTF-8";
+/*
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.................................................................................................................
+.....█████╗..██████╗██╗..██╗████████╗██╗...██╗███╗...██╗.██████╗.██╗....███████╗████████╗.██████╗.██████╗.██╗....
+....██╔══██╗██╔════╝██║..██║╚══██╔══╝██║...██║████╗..██║██╔════╝.██║....██╔════╝╚══██╔══╝██╔═══██╗██╔══██╗██║....
+....███████║██║.....███████║...██║...██║...██║██╔██╗.██║██║..███╗██║....███████╗...██║...██║...██║██████╔╝██║....
+....██╔══██║██║.....██╔══██║...██║...██║...██║██║╚██╗██║██║...██║╚═╝....╚════██║...██║...██║...██║██╔═══╝.╚═╝....
+....██║..██║╚██████╗██║..██║...██║...╚██████╔╝██║.╚████║╚██████╔╝██╗....███████║...██║...╚██████╔╝██║.....██╗....
+....╚═╝..╚═╝.╚═════╝╚═╝..╚═╝...╚═╝....╚═════╝.╚═╝..╚═══╝.╚═════╝.╚═╝....╚══════╝...╚═╝....╚═════╝.╚═╝.....╚═╝....
+.................................................................................................................
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Du befindest dich eventuell in der falschen Datei. Das hier ist Sass, eine Art von CSS die viel mehr Funktionen,
+Verbesserungen mit sich bringt und ganz besonders sehr viel Arbeit abnimmt, da es zum Beispiel automatisch
+Eigenschaften für alle Browser-Varianten generiert, da Firefox, Chrome und Safari ihr eigenes Süppchen kochen,
+was am Ende mehr Arbeit als sonst bedeutet, da einige Eigenschaften nur mit einem Präfix funktionieren oder anders
+funktionieren. Im Endeffekt ist Sass ein Präprozessor für CSS, der die Arbeit erleichtert und die Arbeit beschleunigt.
+Kurz gesagt: Sass ist wie C++ für CSS, wobei CSS C ist. Eine Art Untersprache, nur das es am Ende in CSS übersetzt wird.
+
+Da ich nur Sass benutze und CSS hasse, schreibe ich trotzdem alles in Sass, da es eh in CSS übersetzt wird. Ich habe
+auch dafür einige andere Präprozessoren deaktiviert, um die CSS am Ende trotzdem lesbar zu machen.
+
+Aber damit du nichts falsches lernst, öffne BITTE die Datei "design.css" und nicht "design.scss"!
+
+Wenn du aber einfach nur neugierig bist, dann Viel Spaß!
+*/
+@import url("https://fonts.googleapis.com/css2?family=Gantari:ital,wght@0,100..900;1,100..900&display=swap");
+:root.debug * {
+  border: 1px dashed red;
+}
+:root.debug html {
+  overflow: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6, p, span, button, a, input, label {
+  font-family: "Gantari", sans-serif;
+  margin: 0px;
+}
+
+html, body {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  margin: 0px;
+  padding: 0px 50px;
+  background-color: rgb(0, 0, 0);
+  color: white;
+}
+
+header, footer {
+  position: absolute;
+  width: 100%;
+  height: 125px;
+  background-color: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(48px);
+  box-shadow: 0px 0px 32px black;
+  z-index: 10;
+}
+
+header {
+  top: 0px;
+  left: 0px;
+  border-bottom-left-radius: 48px;
+  border-bottom-right-radius: 48px;
+}
+
+footer {
+  bottom: 0px;
+  left: 0px;
+  border-top-left-radius: 48px;
+  border-top-right-radius: 48px;
+}
+
+main {
+  position: relative;
+  width: 100%;
+  height: 200vh;
+  border-radius: 48px;
+  /*
+  #FB8B24
+  #D90368
+  #820263
+  #7235EC
+  #26E2AA
+   */
+  background-image: radial-gradient(circle at 0% 0%, #FB8B24, #D90368, #820263, #7235EC, #26E2AA);
+}
+main::before {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  content: "";
+  background-image: radial-gradient(circle at 0% 0%, #FB8B24, #D90368, #820263, #7235EC, #26E2AA);
+  filter: blur(128px);
+  z-index: 0;
+}
+
+div.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 125px 25px;
+}
+div.container div.content {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 125px);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+div.container div.content div.container-child {
+  width: 50%;
+  height: 100%;
+  padding: 25px;
+}
+div.container div.content div.container-child.left {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+div.container div.content div.container-child.right {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+h1.title {
+  font-size: 88px;
+  line-height: 70px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  text-shadow: 0px 0px 48px black;
+}
+h1.title span {
+  font-size: 60px;
+  font-weight: 500;
+}
+
+div.code-viewer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 25px;
+  background-color: rgb(25, 25, 25);
+  border-radius: 12px;
+}
+div.code-viewer div.code-block {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+div.code-viewer div.code-block p {
+  font-family: monospace;
+  font-size: 14px;
+  word-break: break-word;
+  white-space: nowrap;
+}
+div.code-viewer button.activate-selector {
+  position: absolute;
+  bottom: 25px;
+  right: 25px;
+}
