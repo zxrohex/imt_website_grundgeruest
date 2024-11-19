@@ -44,12 +44,6 @@ function test1(ed) {
 
 $(function () {
 
-    $("code").each(function (i) {
-        hljs.highlightElement(this);
-    });
-
-    $("code").text($("html").html())
-
     /*$(document).on("selector", function (e) {
         log(isSelectorActive);
 
