@@ -1,7 +1,7 @@
 const log = console.log;
 
 function toggleDebug() {
-    $(":root").toggleClass("debug");
+
 }
 
 $(function () {
@@ -11,5 +11,9 @@ $(function () {
        } else {
            $("body").removeClass("scrolled");
        }
+    });
+
+    $("#debug-btn").on("click", function () {
+        $(":root").toggleClass("debug");
     });
 });
