@@ -35,7 +35,8 @@ Wenn du aber einfach nur neugierig bist, dann Viel Spaß!
 }
 
 * {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 h1, h2, h3, h4, h5, h6, p, span, button, a, input, label {
@@ -48,24 +49,57 @@ html, body {
   width: 100%;
   min-height: 100vh;
   margin: 0px;
-  padding: 0px 50px;
-  background-color: rgb(0, 0, 0);
+  padding: 0px;
+  background-color: rgb(50, 50, 50);
   color: white;
+}
+
+body {
+  padding: 0px 50px;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+}
+body.scrolled {
+  padding: 0px;
+}
+
+.scrolled body {
+  padding: 0px;
+}
+.scrolled main {
+  margin: 0px;
 }
 
 header, footer {
   position: absolute;
   width: 100%;
   height: 125px;
-  background-color: rgba(0, 0, 0, 0.65);
-  backdrop-filter: blur(48px);
-  box-shadow: 0px 0px 32px black;
+  background-color: rgba(0, 0, 0, 0.35);
+  -webkit-backdrop-filter: blur(48px);
+          backdrop-filter: blur(48px);
+  -webkit-box-shadow: 0px 0px 32px black;
+          box-shadow: 0px 0px 32px black;
   z-index: 10;
 }
 
 header {
+  position: sticky;
   top: 0px;
   left: 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0px 50px;
   border-bottom-left-radius: 48px;
   border-bottom-right-radius: 48px;
 }
@@ -79,8 +113,18 @@ footer {
 
 main {
   position: relative;
+  width: calc(100% - 0px);
+  height: 300vh;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+}
+main div.background-container {
+  position: absolute;
+  top: 0px;
+  left: 0px;
   width: 100%;
-  height: 200vh;
+  height: calc(100% - 15px);
+  margin-top: 15px;
   border-radius: 48px;
   /*
   #FB8B24
@@ -90,8 +134,11 @@ main {
   #26E2AA
    */
   background-image: radial-gradient(circle at 0% 0%, #FB8B24, #D90368, #820263, #7235EC, #26E2AA);
+  -webkit-box-shadow: 0px 0px 32px black;
+          box-shadow: 0px 0px 32px black;
+  z-index: 0;
 }
-main::before {
+main div.background-container::before {
   position: absolute;
   top: 0px;
   left: 0px;
@@ -99,29 +146,52 @@ main::before {
   height: 100%;
   content: "";
   background-image: radial-gradient(circle at 0% 0%, #FB8B24, #D90368, #820263, #7235EC, #26E2AA);
-  filter: blur(128px);
+  -webkit-filter: blur(256px);
+          filter: blur(256px);
   z-index: 0;
+}
+
+button.debug-btn {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 100;
 }
 
 div.container {
   position: relative;
   width: 100%;
-  height: 100%;
-  padding: 125px 25px;
+  height: 100vh;
+  padding: 25px;
+  z-index: 1;
 }
 div.container div.content {
   position: relative;
   width: 100%;
-  height: calc(100vh - 125px);
+  height: calc(100vh - 140px);
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 @media (max-width: 1024px) {
   div.container div.content {
-    flex-direction: column;
-    justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
 }
 div.container div.content div.container-child {
@@ -135,17 +205,51 @@ div.container div.content div.container-child {
     height: 50%;
   }
 }
-div.container div.content div.container-child.left {
+div.container div.content div.container-child.full-width {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+div.container div.content div.container-child.left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 div.container div.content div.container-child.right {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 h1.title {
@@ -178,10 +282,16 @@ div.code-viewer div.code-block {
 div.code-viewer div.code-block img {
   width: auto;
   height: auto;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 div.code-viewer button.activate-selector {
   position: absolute;
   bottom: 25px;
   right: 25px;
+}
+
+h3.mini-header {
+  font-size: 72px;
+  text-shadow: 0px 0px 24px black;
 }
