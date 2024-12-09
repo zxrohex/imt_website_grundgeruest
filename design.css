@@ -16,6 +16,11 @@ h1.title {
 h1.title span.thin {
   font-weight: 100;
 }
+@media (max-width: 1000px) {
+  h1.title {
+    font-size: 36px;
+  }
+}
 
 html, body, main {
   position: relative;
@@ -40,6 +45,17 @@ main {
           justify-content: space-between;
   padding: 50px;
 }
+@media (max-width: 680px) {
+  main {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
 main div.container {
   width: 47.5%;
   height: 100%;
@@ -54,10 +70,23 @@ main div.container {
       -ms-flex-pack: center;
           justify-content: center;
 }
+@media (max-width: 680px) {
+  main div.container {
+    width: 100%;
+    height: 47.5%;
+  }
+}
 main div.container.left {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+}
+@media (max-width: 680px) {
+  main div.container.left {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
 }
 main div.container.left p.paragraph {
   font-size: 18px;
@@ -86,6 +115,13 @@ main div.container.right {
       -ms-flex-align: end;
           align-items: flex-end;
 }
+@media (max-width: 680px) {
+  main div.container.right {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
 main div.container.right img.code-image {
   width: 90%;
   height: auto;
@@ -94,6 +130,13 @@ main div.container.right img.code-image {
           box-shadow: 0px 0px 32px rgba(0, 0, 0, 0.7);
   -o-object-fit: cover;
      object-fit: cover;
+}
+@media (max-width: 680px) {
+  main div.container.right img.code-image {
+    width: auto;
+    height: 75%;
+    border: 15px solid rgb(31, 31, 31);
+  }
 }
 
 header, footer {
