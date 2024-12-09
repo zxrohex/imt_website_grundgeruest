@@ -22,6 +22,16 @@ h1.title span.thin {
   }
 }
 
+a.icon-link i {
+  font-size: 36px;
+  color: black;
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+}
+a.icon-link i:hover {
+  color: rgb(78, 92, 250);
+}
+
 html, body, main {
   position: relative;
   width: 100%;
@@ -94,6 +104,11 @@ main div.container.left p.paragraph {
   margin-top: 25px;
   margin-bottom: 25px;
 }
+@media (max-width: 1000px) {
+  main div.container.left p.paragraph {
+    font-size: 15px;
+  }
+}
 main div.container.left button.main-button {
   width: 200px;
   height: 50px;
@@ -154,6 +169,7 @@ header, footer {
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding: 0px 50px;
+  z-index: 10;
 }
 
 header {

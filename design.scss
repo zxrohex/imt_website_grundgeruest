@@ -23,6 +23,20 @@ h1.title {
 	}
 }
 
+a.icon-link {
+	i {
+		font-size: 36px;
+
+		color: black;
+
+		transition-duration: 0.3s;
+
+		&:hover {
+			color: rgb(78, 92, 250);
+		}
+	}
+}
+
 html, body, main {
 	position: relative;
 
@@ -73,6 +87,10 @@ main {
 
 				margin-top: 25px;
 				margin-bottom: 25px;
+
+				@media (max-width: 1000px) {
+					font-size: 15px;
+				}
 			}
 
 			button.main-button {
@@ -133,6 +151,8 @@ header, footer {
 	justify-content: space-between;
 
 	padding: 0px 50px;
+
+	z-index: 10;
 }
 
 header {
