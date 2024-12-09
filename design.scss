@@ -6,10 +6,12 @@
 
 h1, h2, h3, h4, h5, h6, p, a, span, div, ul, li, ol, input, button {
 	font-family: 'Roboto', sans-serif;
+
+	margin: 0px;
 }
 
 h1.title {
-	font-size: 62px;
+	font-size: 60px;
 	font-weight: 900;
 
 	span.thin {
@@ -35,7 +37,7 @@ main {
 	padding: 50px;
 
 	div.container {
-		width: 50%;
+		width: 47.5%;
 		height: 100%;
 
 		display: flex;
@@ -44,12 +46,62 @@ main {
 
 		&.left {
 			align-items: flex-start;
+
+			p.paragraph {
+				font-size: 18px;
+				font-weight: 300;
+
+				margin-top: 25px;
+				margin-bottom: 25px;
+			}
+
+			button.main-button {
+				width: 200px;
+				height: 50px;
+
+				background-color: rgb(31, 31, 31);
+				color: rgb(250, 250, 250);
+
+				font-size: 18px;
+				font-weight: 500;
+
+				border: none;
+				border-radius: 25px;
+
+				cursor: pointer;
+
+				transition: background-color 0.3s;
+
+				&:hover {
+					background-color: rgb(78, 92, 250);
+				}
+			}
 		}
 
 		&.right {
 			align-items: flex-end;
+
+			img.code-image {
+				width: 90%;
+				height: auto;
+
+				border: 22.5px solid rgb(31, 31, 31);
+
+				box-shadow: 0px 0px 32px rgba(0, 0, 0, 0.7);
+
+				object-fit: cover;
+			}
 		}
 	}
+}
+
+header, footer {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+
+	padding: 0px 50px;
 }
 
 header {

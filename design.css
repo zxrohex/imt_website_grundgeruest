@@ -6,10 +6,11 @@
 
 h1, h2, h3, h4, h5, h6, p, a, span, div, ul, li, ol, input, button {
   font-family: "Roboto", sans-serif;
+  margin: 0px;
 }
 
 h1.title {
-  font-size: 62px;
+  font-size: 60px;
   font-weight: 900;
 }
 h1.title span.thin {
@@ -40,7 +41,7 @@ main {
   padding: 50px;
 }
 main div.container {
-  width: 50%;
+  width: 47.5%;
   height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -58,10 +59,58 @@ main div.container.left {
       -ms-flex-align: start;
           align-items: flex-start;
 }
+main div.container.left p.paragraph {
+  font-size: 18px;
+  font-weight: 300;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+main div.container.left button.main-button {
+  width: 200px;
+  height: 50px;
+  background-color: rgb(31, 31, 31);
+  color: rgb(250, 250, 250);
+  font-size: 18px;
+  font-weight: 500;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  -webkit-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+}
+main div.container.left button.main-button:hover {
+  background-color: rgb(78, 92, 250);
+}
 main div.container.right {
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
+}
+main div.container.right img.code-image {
+  width: 90%;
+  height: auto;
+  border: 22.5px solid rgb(31, 31, 31);
+  -webkit-box-shadow: 0px 0px 32px rgba(0, 0, 0, 0.7);
+          box-shadow: 0px 0px 32px rgba(0, 0, 0, 0.7);
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+header, footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0px 50px;
 }
 
 header {
