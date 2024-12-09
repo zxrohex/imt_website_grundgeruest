@@ -1,410 +1,77 @@
-/*
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.................................................................................................................
-.....█████╗..██████╗██╗..██╗████████╗██╗...██╗███╗...██╗.██████╗.██╗....███████╗████████╗.██████╗.██████╗.██╗....
-....██╔══██╗██╔════╝██║..██║╚══██╔══╝██║...██║████╗..██║██╔════╝.██║....██╔════╝╚══██╔══╝██╔═══██╗██╔══██╗██║....
-....███████║██║.....███████║...██║...██║...██║██╔██╗.██║██║..███╗██║....███████╗...██║...██║...██║██████╔╝██║....
-....██╔══██║██║.....██╔══██║...██║...██║...██║██║╚██╗██║██║...██║╚═╝....╚════██║...██║...██║...██║██╔═══╝.╚═╝....
-....██║..██║╚██████╗██║..██║...██║...╚██████╔╝██║.╚████║╚██████╔╝██╗....███████║...██║...╚██████╔╝██║.....██╗....
-....╚═╝..╚═╝.╚═════╝╚═╝..╚═╝...╚═╝....╚═════╝.╚═╝..╚═══╝.╚═════╝.╚═╝....╚══════╝...╚═╝....╚═════╝.╚═╝.....╚═╝....
-.................................................................................................................
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-Du befindest dich eventuell in der falschen Datei. Das hier ist Sass, eine Art von CSS die viel mehr Funktionen,
-Verbesserungen mit sich bringt und ganz besonders sehr viel Arbeit abnimmt, da es zum Beispiel automatisch
-Eigenschaften für alle Browser-Varianten generiert, da Firefox, Chrome und Safari ihr eigenes Süppchen kochen,
-was am Ende mehr Arbeit als sonst bedeutet, da einige Eigenschaften nur mit einem Präfix funktionieren oder anders
-funktionieren. Im Endeffekt ist Sass ein Präprozessor für CSS, der die Arbeit erleichtert und die Arbeit beschleunigt.
-Kurz gesagt: Sass ist wie C++ für CSS, wobei CSS C ist. Eine Art Untersprache, nur das es am Ende in CSS übersetzt wird.
-
-Da ich nur Sass benutze und CSS hasse, schreibe ich trotzdem alles in Sass, da es eh in CSS übersetzt wird. Ich habe
-auch dafür einige andere Präprozessoren deaktiviert, um die CSS am Ende trotzdem lesbar zu machen.
-
-Aber damit du nichts falsches lernst, öffne BITTE die Datei "design.css" und nicht "design.scss"!
-
-Wenn du aber einfach nur neugierig bist, dann Viel Spaß!
-*/
-
-@import url('https://fonts.googleapis.com/css2?family=Gantari:ital,wght@0,100..900;1,100..900&display=swap');
-
-$debug: false;
-
-@if $debug {
-	* {
-		border: 1px dashed red;
-	}
-
-	html {
-		overflow: hidden;
-	}
-} @else {
-	:root.debug {
-		* {
-			border: 1px dashed red;
-		}
-
-		html {
-			overflow: hidden;
-		}
-	}
-}
-
-// Größen soll Padding und Border beinhalten
 * {
 	box-sizing: border-box;
 }
 
-// Schriftart und Abstände zurücksetzen
-h1, h2, h3, h4, h5, h6, p, span, button, a, input, label {
-	font-family: 'Gantari', sans-serif;
-
-	margin: 0px;
+h1, h2, h3, h4, h5, h6, p, a, span, div, ul, li, ol, input, button {
+	font-family: 'Roboto', sans-serif;
 }
 
-// HTML-Root und Body anpassen
-html, body {
-	// Positionierung relativ setzen
-	// Ist öfters nötig als Workaround
+h1.title {
+	font-size: 62px;
+	font-weight: 900;
+
+	span.thin {
+		font-weight: 100;
+	}
+}
+
+html, body, main {
 	position: relative;
 
-	// Breite auf 100% setzen, Höhe auf mindestens 100vh
-	// Die Einheit vh ist die Höhe des Viewports (sichtbare Fläche vom Browser)
 	width: 100%;
-	min-height: 100vh;
+	height: 100%;
 
-	// Äußere Abstände auf 0 setzen
-	// Innere Abstände auf 0px oben und unten, 50px links und rechts
 	margin: 0px;
-	padding: 0px;
-
-	// Farben setzen
-	background-color: rgb(50, 50, 50);
-	color: white;
 }
 
-body {
-	padding: 0px 50px;
-
-	transition-duration: 0.5s;
-
-	&.scrolled {
-		padding: 0px;
-	}
-}
-
-.scrolled {
-	body {
-		padding: 0px;
-	}
-
-	main {
-		margin: 0px;
-	}
-}
-
-// Header und Footer anpassen
-header, footer {
-	// Position absolut setzen (immer an der gleichen Stelle)
-	position: absolute;
-
-	// Breite auf 100% setzen, Höhe auf 125px
-	width: 100%;
-	height: 125px;
-
-	// Hintergrundfarbe setzen mit Transparenz von 65%
-	background-color: rgba(0, 0, 0, 0.35);
-
-	//filter: drop-shadow(0px 0px 32px black);
-
-	// Hintergrundfilter um alles was sich dahinter befindet, unscharf zu machen
-	backdrop-filter:  blur(48px);
-
-	// Schatten setzen
-	box-shadow: 0px 0px 32px black;
-
-	// Z-Index setzen, damit es über allem anderen liegt
-	z-index: 10;
-}
-
-// Header-spezifische Anpassungen
-header {
-	position: sticky;
-
-	// Oben und links auf 0 setzen
-	top: 0px;
-	left: 0px;
-
+main {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
 	justify-content: space-between;
 
-	padding: 0px 50px;
-
-	// Abgerundete Ecken setzen (unten links und rechts)
-	border-bottom-left-radius: 48px;
-	border-bottom-right-radius: 48px;
-}
-
-// Footer-spezifische Anpassungen
-footer {
-	// Unten und links auf 0 setzen
-	bottom: 0px;
-	left: 0px;
-
-	// Abgerundete Ecken setzen (oben links und rechts)
-	border-top-left-radius: 48px;
-	border-top-right-radius: 48px;
-}
-
-// Main-Element anpassen
-main {
-	// Position relativ setzen
-	position: relative;
-
-	// Breite auf 100% setzen, Höhe auf 200vh
-	width: calc(100% - 0px);
-	height: 300vh;
-
-
-	transition-duration: 0.5s;
-
-	div.background-container {
-		position: absolute;
-		top: 0px;
-		left: 0px;
-
-		width: 100%;
-		height: calc(100% - 15px);
-
-		margin-top: 15px;
-
-		// Abgerundete Ecken setzen
-		border-radius: 48px;
-
-		/*
-		#FB8B24
-		#D90368
-		#820263
-		#7235EC
-		#26E2AA
-		 */
-		// Hintergrund setzen mit radialem Verlauf von oben links
-		background-image: radial-gradient(circle at 0% 0%, #FB8B24, #D90368, #820263, #7235EC, #26E2AA);
-
-		box-shadow: 0px 0px 32px black;
-
-		z-index: 0;
-
-		// Pseudoelement für den Lichteffekt
-		&::before {
-			// Position absolut setzen (immer an der gleichen Stelle)
-			position: absolute;
-			top: 0px;
-			left: 0px;
-
-			// Breite und Höhe auf 100% setzen
-			width: 100%;
-			height: 100%;
-
-			// Inhalt "setzen", um das Pseudoelement sichtbar zu machen
-			content: '';
-
-			// Den selben Hintergrund setzen wie das Hauptelement
-			background-image: radial-gradient(circle at 0% 0%, #FB8B24, #D90368, #820263, #7235EC, #26E2AA);
-
-			// Filter setzen, um das Pseudoelement unscharf zu machen
-			filter: blur(256px);
-
-			// Z-Index setzen, damit es unter allem anderen liegt
-			z-index: 0;
-		}
-	}
-}
-
-button.debug-btn {
-	position: fixed;
-
-	bottom: 25px;
-	right: 25px;
-
-	z-index: 100;
-}
-
-// Container-Element anpassen
-div.container {
-	// Position relativ setzen
-	position: relative;
-
-	// Breite auf 100% setzen, Höhe auf 100%
-	width: 100%;
-	height: 100vh;
-
-	// Abstände setzen, oben und unten 125px, links und rechts 25px
-	// 125px da der Header und Footer jeweils 125px hoch sind
-	padding: 25px;
-
-	z-index: 1;
-
-	// Inhaltsbereich anpassen
-	div.content {
-		// Position relativ setzen
-		position: relative;
-
-		// Breite auf 100% setzen, Höhe auf 100% minus 125px
-		width: 100%;
-		height: calc(100vh - 140px);
-
-		// Darstellung der Elemente anpassen
-		// Flexbox ist eine Art von Layout-System, um Elemente in einer Zeile oder Spalte anzuordnen
-		// Relativ einfach zu nutzen und sehr mächtig
-		display: flex;
-		// Flexbox in einer Spalte anordnen
-		flex-direction: row;
-		// Elemente zentrieren
-		align-items: center;
-		// Elemente gleichmäßig verteilen
-		justify-content: space-between;
-
-		// Bei einer Bildschirmbreite von maximal 1024px
-		@media (max-width: 1024px) {
-			// Flexbox in einer Zeile anordnen
-			flex-direction: column;
-
-			// Elemente zentrieren
-			justify-content: center;
-		}
-
-		// Inhaltselemente anpassen
-		div.container-child {
-			// Größe setzen, 50% Breite und 100% Höhe
-			width: 50%;
-			height: 100%;
-
-			// Abstände setzen, 25px
-			padding: 25px;
-
-			// Bei einer Bildschirmbreite von maximal 1024px
-			@media (max-width: 1024px) {
-				// Größe setzen, 100% Breite und 50% Höhe
-				width: 100%;
-
-				height: 50%;
-			}
-
-			&.full-width {
-				width: 100%;
-
-				display: flex;
-				flex-direction: column;
-				justify-content: center;
-				align-items: center;
-			}
-
-			// Subklasse für die linke Seite
-			&.left {
-				// Darstellung der Elemente anpassen
-				// Flexbox in einer Zeile anordnen
-				display: flex;
-				flex-flow: column nowrap;
-				// Elemente zentrieren
-				justify-content: center;
-				align-items: center;
-			}
-
-			// Subklasse für die rechte Seite
-			&.right {
-				// Darstellung der Elemente anpassen
-				// Flexbox in einer Zeile anordnen
-				display: flex;
-				flex-flow: column nowrap;
-				// Elemente zentrieren
-				justify-content: center;
-				align-items: center;
-			}
-		}
-	}
-}
-
-// Überschrift anpassen
-h1.title {
-	font-size: 88px;
-
-	// Zeilenhöhe setzen
-	line-height: 70px;
-
-	// Schriftstärke setzen
-	font-weight: 800;
-
-	// Buchstabenabstand setzen
-	letter-spacing: -1px;
-
-	// Restlicher Teil der Überschrift anpassen
-	span {
-		// Schriftgröße setzen
-		font-size: 60px;
-
-		// Schriftstärke setzen
-		font-weight: 500;
-	}
-
-	// Textschatten setzen
-	text-shadow: 0px 0px 48px black;
-}
-
-// Code-Snippet anpassen
-div.code-viewer {
-	// Position relativ setzen
-	position: relative;
-
-	// Breite auf 100% setzen, Höhe auf 100%
-	width: 100%;
-	height: 100%;
-
-	// Abstände setzen, 50px
 	padding: 50px;
 
-	// Hintergrundfarbe setzen
-	background-color: rgb(30, 31, 31);
-
-	// Abgerundete Ecken setzen
-	border-radius: 12px;
-
-	// Inhaltsbereich anpassen
-	div.code-block {
-		// Position relativ setzen
-		position: relative;
-
-		// Breite auf 100% setzen, Höhe auf 100%
-		width: 100%;
+	div.container {
+		width: 50%;
 		height: 100%;
 
-		// Überlauf erlauben aber verstecken
-		overflow: auto;
-		scrollbar-width: none;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
 
-		// Bild anpassen
-		img {
-			// Breite und Höhe auf auto setzen
-			width: auto;
-			height: auto;
-
-			// Größe des Bildes soll nicht verändert werden
-			object-fit: contain;
+		&.left {
+			align-items: flex-start;
 		}
-	}
 
-	button.activate-selector {
-		position: absolute;
-
-		bottom: 25px;
-		right: 25px;
+		&.right {
+			align-items: flex-end;
+		}
 	}
 }
 
-h3.mini-header {
-	font-size: 72px;
+header {
+	position: absolute;
 
-	text-shadow: 0px 0px 24px black;
+	width: 100%;
+	height: 100px;
+
+	background-color: rgb(250, 250, 250);
+
+	filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.1));
+}
+
+footer {
+	position: absolute;
+
+	width: 100%;
+	height: 100px;
+
+	background-color: rgb(250, 250, 250);
+
+	filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.1));
+
+	bottom: 0px;
 }
