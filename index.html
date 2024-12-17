@@ -3,6 +3,8 @@ IMT - CI3U1 - Grundgerüst einer Website
 Autor: Daniel Kruse
 Datum: 09.12.2024
 Überarbeitungsdatum: 18. & 19.11.2024
+Branch-Name: imt_website_grundgeruest/simple-grundgerüst
+Branch-Datum: 17.12.2024
 -->
 
 <!-- Sagt dem Browser, das es eine HTML-Datei ist -->
@@ -23,12 +25,16 @@ Datum: 09.12.2024
 		<!-- Beschreibung -->
 		<meta name="description" content="Grundgerüst einer Website">
 
+		<!-- Author der Website -->
+		<meta name="author" content="Daniel Kruse">
+
 		<!-- CSS-Datei für das Design der Website -->
 		<link rel="stylesheet" href="design.css">
 
 		<!-- JavaScript-Bibliothek für die Funktionalität der Website -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
+		<!-- JavaScript-Bibliothek für die Icons der Website -->
 		<script src="https://kit.fontawesome.com/4419b7770f.js" crossorigin="anonymous"></script>
 
 		<!-- JavaScript-Datei der Website -->
@@ -42,31 +48,43 @@ Datum: 09.12.2024
 	<body>
 		<!-- Überschrift bzw. sichtbarer Kopfbereich der Website -->
 		<header>
+			<!-- Überschrift der Website -->
 			<h1>
 				Grundger&uuml;st einer Website
 			</h1>
 
+			<!-- Links zu externen Websites -->
 			<a class="icon-link" href="https://github.com/zxrohex/imt_website_grundgeruest/tree/simple-grundger%C3%BCst" target="_blank">
+				<!-- Icon für GitHub -->
 				<i class="fab fa-github"></i>
 			</a>
 		</header>
 
 		<!-- Hauptbereich der Website -->
 		<main>
+			<!-- Container für den Hauptbereich der Website -->
 			<div class="container left">
+				<!-- Überschrift des Hauptbereichs -->
 				<h1 class="title">Grundgerüst <span class="thin">einer Website</span></h1>
 
+				<!-- Absatz des Hauptbereichs -->
 				<p class="paragraph">
 					Dies ist ein Grundgerüst einer Website. Es ist ein einfaches Beispiel, wie eine Website aufgebaut sein könnte. Es ist in HTML, CSS und JavaScript geschrieben. Es ist ein einfaches Beispiel, wie eine Website aufgebaut sein könnte. Es ist in HTML, CSS und JavaScript geschrieben.
 				</p>
 
+				<!-- Button für die Weiterleitung auf GitHub -->
 				<button class="main-button" onclick="openGitHubLink()">
 					Auf GitHub ansehen
 				</button>
 			</div>
 
+			<!-- Container für das Bild des Hauptbereichs -->
 			<div class="container right">
-				<img alt="Code" class="code-image" src="./img/code.png">
+				<!-- Bild des Hauptbereichs -->
+				<div class="img-container">
+					<!-- Bild des Hauptbereichs -->
+					<img alt="Code" class="code-image" src="./img/code3.png">
+				</div>
 			</div>
 		</main>
 
